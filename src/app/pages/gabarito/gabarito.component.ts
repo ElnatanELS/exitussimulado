@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { calculo } from 'src/app/shared/calculo-simulado';
 
 @Component({
   selector: 'app-gabarito',
@@ -15,6 +16,8 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 })
 export class GabaritoComponent {
   form:any;
+  pontos:any;
+  enviado:boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,18 +48,19 @@ export class GabaritoComponent {
 
     enviar(){
 
+      this.pontos = calculo(this.form.value.questoes)
       const simulado = {
         nome: this.form.value.nome,
         cpf: this.form.value.cpf,
-        total: 2.5,
+        total: this.pontos,
         questoes: JSON.stringify(this.form.value.questoes)
 
       }
-      console.log(simulado)
+      console.log(simulado.questoes)
 
 
       this.simuladoService.addSimulado(simulado).subscribe({
-        next: (res:any) => {this.openSnackBar("simulado enviado",""), this.form.reset()},
+        next: (res:any) => {this.openSnackBar("simulado enviado",""), this.form.reset(); this.enviado = true},
         error: (e) => {
           console.log(e);
           this.openSnackBar("CPF Já cadastrado","")

@@ -20,13 +20,13 @@
     <div
   class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-sky-100 border-0"
 >
-  <div class="rounded-t bg-white mb-0 px-6 py-6">
+  <div *ngIf="!enviado" class="rounded-t bg-white mb-0 px-6 py-6">
     <div class="text-center flex justify-between">
       <h6 class="text-sky-700 text-xl font-bold">Gabarito</h6>
 
     </div>
   </div>
-  <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+  <div *ngIf="!enviado" class="flex-auto px-4 lg:px-10 py-10 pt-0">
     <form [formGroup]="form">
       <h6 class="text-sky-400 text-sm mt-3 mb-6 font-bold uppercase">
         Identificação
@@ -166,6 +166,13 @@
 
 
     </form>
+  </div>
+
+  <div *ngIf="enviado">
+    <div class="bg-green-400 rounded-lg grid justify-center">
+      <h1 class="text-6xl text-center my-5 text-white">GABARITO ENVIADO</h1>
+      <h3 class="text-3xl text-center my-5 text-white">você fez {{pontos}} pontos</h3>
+    </div>
   </div>
 </div>
 
