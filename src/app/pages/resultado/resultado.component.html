@@ -1,0 +1,57 @@
+<div class="flex flex-wrap">
+  <div class="w-full px-4">
+    <div
+      class="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-sky-100 border-0"
+    >
+      <div class="rounded bg-white mb-0 px-6 py-6">
+        <div class="text-center flex justify-center">
+          <img src="../../../assets/logo.jpeg" alt="" class="w-44" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex flex-wrap">
+  <div class="w-full px-4">
+    <div
+      class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-sky-100 border-0"
+    >
+      <div class="rounded-t bg-white mb-0 px-6 py-6">
+        <div class="text-center flex justify-between">
+          <h6 class="text-sky-700 text-xl font-bold">Resultados</h6>
+        </div>
+      </div>
+      <div class="flex-auto px-4 lg:px-5 py-20 pt-5 bg-sky-100 rounded-lg">
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8 demo-table"
+        >
+          <tr
+            mat-header-row
+            *matHeaderRowDef="['CPF', 'Nome', 'Resultado']"
+          ></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: ['CPF', 'Nome', 'Resultado']"
+          ></tr>
+          <!-- Position Column -->
+          <ng-container matColumnDef="CPF">
+            <th class="w-1/5" mat-header-cell *matHeaderCellDef>CPF</th>
+            <td mat-cell *matCellDef="let element">{{ element.CPF | CPF }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="Nome">
+            <th class="w-4/6" mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let element">{{ element.Nome }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="Resultado">
+            <th class="w-1/5" mat-header-cell *matHeaderCellDef>Resultado</th>
+            <td mat-cell *matCellDef="let element">{{ element.Resultado }}</td>
+          </ng-container>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
