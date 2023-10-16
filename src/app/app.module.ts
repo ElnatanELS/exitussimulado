@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ResultadoComponent } from './pages/resultado/resultado.component';
 import { MatTableModule } from '@angular/material/table';
-import { CPFPipe } from './cpf.pipe';
+import { CPFPipe } from './shared/pipe/cpf.pipe';
 import { DialogConfirmaComponent } from './pages/gabarito/dialog-confirma/dialog-confirma.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ResultadoDialogComponent } from './pages/resultado/resultado-dialog/resultado-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, ResultadoComponent, CPFPipe],
+  declarations: [AppComponent, ResultadoComponent, CPFPipe, ResultadoDialogComponent],
 
   imports: [
     BrowserModule,
@@ -20,6 +24,9 @@ import { DialogConfirmaComponent } from './pages/gabarito/dialog-confirma/dialog
     HttpClientModule,
     MatTableModule,
     DialogConfirmaComponent,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

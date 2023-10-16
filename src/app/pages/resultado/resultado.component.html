@@ -29,26 +29,52 @@
         >
           <tr
             mat-header-row
-            *matHeaderRowDef="['CPF', 'Nome', 'Resultado']"
+            *matHeaderRowDef="['CPF', 'Nome', 'Resultado', 'Gabarito']"
           ></tr>
           <tr
             mat-row
-            *matRowDef="let row; columns: ['CPF', 'Nome', 'Resultado']"
+            *matRowDef="
+              let row;
+              columns: ['CPF', 'Nome', 'Resultado', 'Gabarito']
+            "
           ></tr>
           <!-- Position Column -->
+
           <ng-container matColumnDef="CPF">
             <th class="w-1/5" mat-header-cell *matHeaderCellDef>CPF</th>
-            <td mat-cell *matCellDef="let element">{{ element.CPF | CPF }}</td>
+            <td mat-cell *matCellDef="let element">
+              {{ element.CPF | CPF }}
+            </td>
           </ng-container>
 
           <ng-container matColumnDef="Nome">
-            <th class="w-4/6" mat-header-cell *matHeaderCellDef>Nome</th>
+            <th class="w-1/2" mat-header-cell *matHeaderCellDef>Nome</th>
             <td mat-cell *matCellDef="let element">{{ element.Nome }}</td>
           </ng-container>
 
           <ng-container matColumnDef="Resultado">
             <th class="w-1/5" mat-header-cell *matHeaderCellDef>Resultado</th>
-            <td mat-cell *matCellDef="let element">{{ element.Resultado }}</td>
+            <td mat-cell *matCellDef="let element">
+              {{ element.Resultado }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Gabarito">
+            <th
+              class="text-emerald-500 flex items-center justify-center"
+              mat-header-cell
+              *matHeaderCellDef
+            >
+              Gabarito
+              <button
+                mat-icon-button
+                (click)="openDialog()"
+                color="primary"
+                aria-label="Example icon button with a menu icon"
+              >
+                <mat-icon>menu</mat-icon>
+              </button>
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.Gabarito }}</td>
           </ng-container>
         </table>
       </div>
