@@ -38,12 +38,13 @@
               class="block uppercase text-sky-600 text-xs font-bold mb-2"
               htmlFor="grid-password"
             >
-              CPF
+              CPF (Só numeros)
             </label>
             <input
               type="text"
               class="border-0 px-3 py-3 placeholder-sky-300 text-sky-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               formControlName="cpf"
+              maxlength="11"
             />
           </div>
         </div>
@@ -76,75 +77,15 @@
       </h6>
       <div formGroupName="questoes">
       <div class="w-full lg:w-6/12 px-4">
-        <div class="relative flex w-full mb-3">
+        <div *ngFor="let item of questoes" class="relative flex w-full mb-3">
           <label
             class="block uppercase self-center text-sky-600 text-xs font-bold me-4 "
             htmlFor="grid-password"
           >
-            1.
+            {{item + 1}}.
           </label>
-          <mat-radio-group formControlName="1" labelPosition="before" aria-label="Select an option">
+          <mat-radio-group [formControlName]="item + 1" labelPosition="before" aria-label="Select an option">
             <mat-radio-button value="A">A</mat-radio-button>
-            <mat-radio-button value="B">B</mat-radio-button>
-            <mat-radio-button value="C">C</mat-radio-button>
-            <mat-radio-button value="D">D</mat-radio-button>
-            <mat-radio-button value="E">E</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div class="relative flex w-full mb-3">
-          <label
-            class="block uppercase self-center text-sky-600 text-xs font-bold me-4"
-            htmlFor="grid-password"
-          >
-            2.
-          </label>
-          <mat-radio-group formControlName="2" labelPosition="before" aria-label="Select an option">
-            <mat-radio-button value="A">A</mat-radio-button>
-            <mat-radio-button value="B">B</mat-radio-button>
-            <mat-radio-button value="C">C</mat-radio-button>
-            <mat-radio-button value="D">D</mat-radio-button>
-            <mat-radio-button value="E">E</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div class="relative flex w-full mb-3">
-          <label
-            class="block uppercase self-center text-sky-600 text-xs font-bold me-4"
-            htmlFor="grid-password"
-          >
-            3.
-          </label>
-          <mat-radio-group formControlName="3" labelPosition="before" aria-label="Select an option">
-            <mat-radio-button value="A">A</mat-radio-button>
-            <mat-radio-button value="B">B</mat-radio-button>
-            <mat-radio-button value="C">C</mat-radio-button>
-            <mat-radio-button value="D">D</mat-radio-button>
-            <mat-radio-button value="E">E</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div class="relative flex w-full mb-3">
-          <label
-            class="block uppercase self-center text-sky-600 text-xs font-bold me-4"
-            htmlFor="grid-password"
-          >
-            4.
-          </label>
-          <mat-radio-group formControlName="4" labelPosition="before" aria-label="Select an option">
-            <mat-radio-button value="A">A</mat-radio-button>
-            <mat-radio-button value="B">B</mat-radio-button>
-            <mat-radio-button value="C">C</mat-radio-button>
-            <mat-radio-button value="D">D</mat-radio-button>
-            <mat-radio-button value="E">E</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div class="relative flex w-full mb-3">
-          <label
-            class="block uppercase self-center text-sky-600 text-xs font-bold me-4"
-            htmlFor="grid-password"
-          >
-            5.
-          </label>
-          <mat-radio-group formControlName="5" labelPosition="before" aria-label="Select an option">
-            <mat-radio-button  value="A">A</mat-radio-button>
             <mat-radio-button value="B">B</mat-radio-button>
             <mat-radio-button value="C">C</mat-radio-button>
             <mat-radio-button value="D">D</mat-radio-button>
@@ -152,13 +93,14 @@
           </mat-radio-group>
         </div>
 
+
       </div>
     </div>
       <hr class="mt-6 border-b-1 border-sky-300" />
       <button
-        class="bg-red-600 text-white active:bg-red-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+        class="bg-red-600 mt-2 w-full text-white active:bg-red-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
         type="button"
-        (click)="enviar()"
+        (click)="openDialog()"
       >
         enviar
       </button>
@@ -171,7 +113,7 @@
   <div *ngIf="enviado">
     <div class="bg-green-400 rounded-lg grid justify-center">
       <h1 class="text-6xl text-center my-5 text-white">GABARITO ENVIADO</h1>
-      <h3 class="text-3xl text-center my-5 text-white">você fez {{pontos}} pontos</h3>
+      <!-- <h3 class="text-3xl text-center my-5 text-white">você fez {{pontos}} pontos</h3> -->
     </div>
   </div>
 </div>
