@@ -15,12 +15,12 @@ export class ResultadoComponent {
       Resultado: 'Aprovado',
     },
     {
-      CPF: '987654321',
+      CPF: '98765432133',
       Nome: 'Maria José Rodrigues Vieira',
       Resultado: 'Reprovado',
     },
-    { CPF: '987654321', Nome: 'Maria', Resultado: 'Reprovado' },
-    { CPF: '987654321', Nome: 'Maria', Resultado: 'Aprovado' },
+    { CPF: '98765432111', Nome: 'Maria', Resultado: 'Reprovado' },
+    { CPF: '98765432122', Nome: 'Maria', Resultado: 'Aprovado' },
   ];
 
   constructor(public dialog: MatDialog) {}
