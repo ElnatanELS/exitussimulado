@@ -29,7 +29,7 @@ export class ResultadoComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ResultadoDialogComponent, {
-      minWidth: '700px',
+      minWidth: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
