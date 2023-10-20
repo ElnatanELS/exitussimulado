@@ -13,9 +13,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ResultadoDialogComponent } from './pages/resultado/resultado-dialog/resultado-dialog.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [AppComponent, ResultadoComponent, CPFPipe, ResultadoDialogComponent],
+  declarations: [
+    AppComponent,
+    ResultadoComponent,
+    CPFPipe,
+    ResultadoDialogComponent,
+  ],
 
   imports: [
     BrowserModule,
@@ -27,6 +33,7 @@ import { ResultadoDialogComponent } from './pages/resultado/resultado-dialog/res
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
